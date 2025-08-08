@@ -2,10 +2,9 @@ import os
 import sys
 
 from ase.io import read, write
-from wrappers.orca_wrappers import orca_load
 from pathlib import Path
 from ase import Atoms
-from wrappers.orca_wrappers import orca_load ,orca_run
+from wrappers.orca_wrappers import orca_load, orca_run
 
 input_dir = 'oxirane/isolated_system/energies'
 
@@ -14,10 +13,10 @@ lr_es1 = []
 sf_es1 = []
 sf_es2 = []
 targets = {
-    ('lr', 0): lr_gs,
-    ('lr', 1): lr_es1,
-    ('sf', 1): sf_es1,
-    ('sf', 2): sf_es2,
+    ('linear-response', 0): lr_gs,
+    ('linear-response', 1): lr_es1,
+    ('spin-flip', 1): sf_es1,
+    ('spin-flip', 2): sf_es2,
 }
 
 for (subfolder, state_idx), bucket in targets.items():
@@ -35,7 +34,7 @@ write(f'{out_dir}/oxirane_sf-es1.xyz', sf_es1)
 write(f'{out_dir}/oxirane_sf-es2.xyz', sf_es2)
 
 example = lr_gs[0]
-atom_species = example.get_chemical_symbols().keys()
+atom_species = set(example.get_chemical_symbols())
 
 e0s = []
 
