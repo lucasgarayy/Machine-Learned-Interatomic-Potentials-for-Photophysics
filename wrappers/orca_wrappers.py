@@ -33,7 +33,7 @@ import tempfile
 #    basis_set (string): the name of the basis set, eg "def2-SVP"
 #    func (string): the name of the XC functional, eg "PBE"
 # Parallelism blocks and orca profiles are defined in the box at the top
-def orca_run(model,directory,task,basis_set,func,orca_blocks=""):
+def orca_run(model,directory,task,basis_set,func, mult, orca_blocks=""):
     from ase.optimize import BFGS
     origdir = getcwd()
     if not path.exists(directory):
@@ -47,7 +47,7 @@ def orca_run(model,directory,task,basis_set,func,orca_blocks=""):
             symlink(f'{origdir}/{directory}/orca{ext}',f'{tmpdir}/{directory}/orca{ext}')
         model.calc = ORCA(directory=directory,
                           orcasimpleinput=f"{task} {basis_set} {func}",
-                          profile=orca_profile,orcablocks=orca_pal_block+orca_blocks)
+                          profile=orca_profile,orcablocks=orca_pal_block+orca_blocks, mult = mult)
         model.get_potential_energy()
         chdir(origdir) # return to original directory, large output files are discarded
     return # do not return any values - use orca_load
