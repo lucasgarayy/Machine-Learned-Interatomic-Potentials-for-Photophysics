@@ -50,8 +50,6 @@ Machine-learned interatomic potentials (MLIPs) offer a route to bridge the gap:
 
 ## 📊 Key Results
 
-*(Figures are placeholders — replace with your images later)*
-
 <p align="center">
   <img src="docs/figs/thymine-predictions.png" alt="Thymine PES Predictions" width="75%">
   <br><em>Predicted Potential Energy Surface for thymine dimerisation, fine-tuned vs raw models.</em>
@@ -128,4 +126,10 @@ If referencing this work:
 - Supervision & guidance from my project supervisor Professor Nicholas Hine
 - MACE developers for the open-source MLIP framework  
 - ORCA developers for making high-quality quantum chemistry accessible
+
+## Bibliography
+- Neese, F. The ORCA program system Wiley Interdiscip. Rev.: Comput. Mol. Sci., 2012, 2, 1, 73–78 (DOI: 10.1002/wcms.81)
+- Kovács, D. P. et al. MACE‑OFF: Short‑Range Transferable Machine Learning Force Fields for Organic Molecules. J. Am. Chem. Soc. 2025, 147 (21), 17598–17611. DOI: 10.1021/jacs.4c07099
+- Ask Hjorth Larsen et al. The Atomic Simulation Environment—A Python library for working with atoms. J. Phys.: Condens. Matter Vol. 29 273002, 2017
+- Physical Review Letters Matplotlib style: github.com/hosilva/physrev_mplstyle
 
